@@ -14,6 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btnTeste.setOnClickListener{Toast.makeText(this,"Boa aprendeu a usar botão, PARABÉNS!!",Toast.LENGTH_SHORT).show()}
+        btnTeste.setOnClickListener{Toast.makeText(this,"Testando Commit!!",Toast.LENGTH_SHORT).show()}
     }
 }
