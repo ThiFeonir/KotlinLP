@@ -8,7 +8,7 @@ import java.util.ArrayList
  */
 internal class Turma() : Serializable {
 
-    private val alunos: ArrayList<Aluno>
+    val alunos: ArrayList<Aluno>
 
     init {
         alunos = ArrayList()

@@ -9,8 +9,8 @@ import android.content.Intent
 
 
 class ActivityAddAluno : AppCompatActivity() {
-    var intent = getIntent()
-    var turma = intent.getSerializableExtra("turma") as Turma
+    var i = getIntent()
+    private var turma = i.getSerializableExtra("turma") as Turma
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
