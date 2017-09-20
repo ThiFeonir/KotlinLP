@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/mTxtNomeAluno"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:text="Nome da Disciplina"
+            android:textColor="#00BFFF"
+            android:textSize="18dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/mTxtMediaAluno"
+            android:layout_width="69dp"
+            android:layout_height="wrap_content"
+            android:text="Media"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textColor="#00BFFF"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/mTxtSitAluno"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Situação"
+            android:paddingRight="3dp"
+            android:textColor="#00BFFF"
+            android:textSize="18dp" />
+    </TableRow>
+
+
+    <TableRow>
+        <LinearLayout
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mTxtNota1"
+                android:text="Nota 1"
+                android:layout_marginRight="10dp"
+                android:textColor="#1E90FF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mTxtNota2"
+                android:textColor="#1E90FF"
+                android:text="Nota 2"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mTxtNota3"
+                android:text="Nota 3"
+                android:textColor="#1E90FF"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mTxtMedia"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="Media"
+            android:Layoutgravity="right"
+            android:textColor="#1E90FF"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mTxtSituacao"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Ap/Rep"
+            android:paddingRight="4dp"
+            android:Layoutgravity="right"
+            android:textColor="#1E90FF"/>
+    </TableRow>
+
+</TableLayout>
