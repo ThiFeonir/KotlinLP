@@ -1,5 +1,7 @@
 package com.example.thial.estudandokotlin
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btnTeste.setOnClickListener{Toast.makeText(this,"Testando Commit!!",Toast.LENGTH_SHORT).show()}
+        btnTeste.setOnClickListener{
+            val i = Intent(this, ActivityAddAluno::class.java)
+            startActivity(i)
+        }
     }
 }
