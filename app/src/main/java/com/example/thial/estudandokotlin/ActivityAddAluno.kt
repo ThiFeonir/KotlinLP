@@ -12,8 +12,8 @@ class ActivityAddAluno : AppCompatActivity() {
         setContentView(R.layout.activity_add_aluno)
 
         mBtnSalvarAluno.setOnClickListener{
-            var name = mEdtNome.text
-            var matricula = mEdtMatricula.text
+            var name = mEdtNomeAluno.text
+            var matricula = mEdtMatriculaAluno.text
             toast("Nome: $name \n," +
                     "Matricula: $matricula")
         }
