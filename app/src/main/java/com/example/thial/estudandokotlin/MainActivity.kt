@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnTeste.setOnClickListener{
-            val i = Intent(this, ActivityAddAluno::class.java)
+            val i = Intent(this, ActivityAddDisciplina::class.java)
             startActivity(i)
         }
     }

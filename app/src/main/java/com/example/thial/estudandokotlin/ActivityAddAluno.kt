@@ -11,10 +11,11 @@ class ActivityAddAluno : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_aluno)
 
-        mBtnSalvar.setOnClickListener{
+        mBtnSalvarAluno.setOnClickListener{
             var name = mEdtNome.text
             var matricula = mEdtMatricula.text
-            toast("Nome: $name \nMatricula: $matricula")
+            toast("Nome: $name \n," +
+                    "Matricula: $matricula")
         }
     }
 

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">KotlinApp</string>
+    <string name="hint_aluno">Informe o nome</string>
+    <string name="hint_matricula">Informe a matricula</string>
+    <string name="hint_disciplina">Informe o nome da disciplina</string>
+    <string name="hint_nota1">Informe a primeira nota</string>
+    <string name="hint_nota2">Informe a segunda nota</string>
+    <string name="hint_nota3">Informe a terceira nota</string>
+    <string name="salvar_aluno">Salvar</string>
+    <string name="deletar_aluno">Deletar</string>
+    <string name="salvar_discip">Salvar</string>
+    <string name="apagar_discip">Deletar</string>
 </resources>
