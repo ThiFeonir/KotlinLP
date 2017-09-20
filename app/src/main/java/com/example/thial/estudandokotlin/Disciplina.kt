@@ -7,14 +7,19 @@ import java.util.ArrayList
  */
 internal class Disciplina {
 
-    var notas = ArrayList<Double>()
+    var notas : ArrayList<Double>? = null
+        private set
+    var nome: String? = null
 
-    constructor() {}
+    constructor(nome: String) {
+        notas = ArrayList()
+        this.nome = nome
+    }
     constructor(notas: ArrayList<Double>) {
         this.notas = notas
     }
 
     fun addNota(nota: Double) {
-        notas.add(nota)
+        notas!!.add(nota)
     }
 }
