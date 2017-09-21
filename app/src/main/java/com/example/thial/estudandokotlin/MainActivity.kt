@@ -27,20 +27,9 @@ class MainActivity : AppCompatActivity() {
         adapter = DisciplinasAdapter(this,disciplina)
         listAlunos.adapter = adapter*/
 
-/*      Testando listView de Aluno
-        var aluno: ArrayList<Aluno>
-        aluno = ArrayList()
-        aluno.add(Aluno("Weslley", "123"))
-        aluno.add(Aluno("Thiago", "1235"))
-        aluno.add(Aluno("Thayane", "1234"))
-        aluno.add(Aluno("Kelvin", "1253"))
-        aluno.add(Aluno("Carlos", "12253"))
 
-        var adapter: AlunosAdapter
-        adapter = AlunosAdapter(this,aluno)
-        listAlunos.adapter = adapter
-*/
-
+      /*  var aluno: ArrayList<Aluno>
+        aluno = ArrayList()*/
         turma.alunos.add(Aluno("Weslley", "123"))
         turma.alunos.add(Aluno("Thiago", "1235"))
         turma.alunos.add(Aluno("Thayane", "1234"))
@@ -56,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             i.putExtra("turma", turma)
             startActivity(i)
         })
+
 
     }
 }
