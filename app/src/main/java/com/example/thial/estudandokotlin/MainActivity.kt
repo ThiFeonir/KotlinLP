@@ -3,6 +3,7 @@ package com.example.thial.estudandokotlin
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -36,15 +37,16 @@ class MainActivity : AppCompatActivity() {
         turma.alunos.add(Aluno("Kelvin", "1253"))
         turma.alunos.add(Aluno("Carlos", "12253"))
 
-        var adapter: AlunosAdapter
-        adapter = AlunosAdapter(this,turma.alunos)
-        listAlunos.adapter = adapter
+        recycler_view.layoutManager = LinearLayoutManager(this)
+        recycler_view.adapter = AlunoAdapter(this,turma.alunos)
+/*
 
         floatingActionButton.setOnClickListener(View.OnClickListener {
             val i = Intent(this, ActivityAddAluno::class.java)
             i.putExtra("turma", turma)
             startActivity(i)
         })
+*/
 
 
     }
