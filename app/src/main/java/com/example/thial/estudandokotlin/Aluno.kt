@@ -6,6 +6,7 @@ import java.util.ArrayList
  * Created by weslley on 19/09/2017.
  */
 
+/*
 class Aluno(nome: String, matricula: String) {
 
     var nome : String? = null
@@ -18,9 +19,10 @@ class Aluno(nome: String, matricula: String) {
 }
 
 
+*/
 
 
-/*class Aluno {
+class Aluno {
 
     var disciplinas: ArrayList<Disciplina>? = null
         private set
@@ -34,10 +36,10 @@ class Aluno(nome: String, matricula: String) {
     constructor(nome: String, matricula: String) {
         this.nome = nome
         this.matricula = matricula
-//        disciplinas = ArrayList()
+        disciplinas = ArrayList()
     }
 
     fun addDisciplina(disciplina: Disciplina) {
         disciplinas!!.add(disciplina)
     }
-}*/
+}

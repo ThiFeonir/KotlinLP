@@ -49,3 +49,11 @@ class AlunosAdapter(context: Context, lista: ArrayList<Aluno>) : BaseAdapter() {
         return alunoLista!!.size
     }
 }
+
+private class ListRowHolder(row: View?) {
+    public val campo: TextView
+
+    init {
+        this.campo = row?.findViewById(R.id.mTxtAluno) as TextView
+    }
+}
