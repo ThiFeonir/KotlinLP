@@ -5,7 +5,7 @@ import java.util.ArrayList
 /**
  * Created by thial on 19/09/2017.
  */
-internal class Aluno {
+class Aluno {
 
     var disciplinas: ArrayList<Disciplina>? = null
         private set

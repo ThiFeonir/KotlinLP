@@ -6,7 +6,7 @@ import java.util.ArrayList
 /**
  * Created by thial on 19/09/2017.
  */
-internal class Turma() : Serializable {
+class Turma() : Serializable {
 
     val alunos: ArrayList<Aluno>
 

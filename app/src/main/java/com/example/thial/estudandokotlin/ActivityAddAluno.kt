@@ -10,7 +10,7 @@ import android.content.Intent
 
 class ActivityAddAluno : AppCompatActivity() {
     var i = getIntent()
-    private var turma = i.getSerializableExtra("turma") as Turma
+//    private var turma = i.getSerializableExtra("turma") as Turma
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class ActivityAddAluno : AppCompatActivity() {
             toast("Nome: $name \n," +
                     "Matricula: $matricula")
 
-            turma.addAluno(Aluno(name, matricula))
+//            turma.addAluno(Aluno(name, matricula))
         }
     }
 

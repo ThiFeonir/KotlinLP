@@ -6,7 +6,8 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_disciplina.*
 
 class ActivityAddDisciplina : AppCompatActivity() {
-    private val aluno = Aluno()
+//    private val aluno = Aluno()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_disciplina)
@@ -22,7 +23,7 @@ class ActivityAddDisciplina : AppCompatActivity() {
                     "Nota 2: $nota2 \n"+
                     "Nota 3: $nota3 \n")
 
-            aluno.addDisciplina(Disciplina(nome, nota1, nota2, nota3))
+//            aluno.addDisciplina(Disciplina(nome, nota1, nota2, nota3))
         }
     }
 

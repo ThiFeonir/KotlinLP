@@ -8,13 +8,13 @@
     <TableRow>
 
         <TextView
-            android:id="@+id/mTxtNomeAluno"
+            android:id="@+id/mTxtDisciplina"
             android:layout_width="185dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Nome da Disciplina"
             android:textColor="#00BFFF"
-            android:textSize="18dp"
-            android:layout_weight="1"/>
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/mTxtMediaAluno"
