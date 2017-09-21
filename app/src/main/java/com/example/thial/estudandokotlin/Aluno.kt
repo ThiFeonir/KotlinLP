@@ -3,9 +3,24 @@ package com.example.thial.estudandokotlin
 import java.util.ArrayList
 
 /**
- * Created by thial on 19/09/2017.
+ * Created by weslley on 19/09/2017.
  */
-class Aluno {
+
+class Aluno(nome: String, matricula: String) {
+
+    var nome : String? = null
+    var matricula : String? = null
+
+    init {
+        this.nome = nome
+        this.matricula = matricula
+    }
+}
+
+
+
+
+/*class Aluno {
 
     var disciplinas: ArrayList<Disciplina>? = null
         private set
@@ -19,10 +34,10 @@ class Aluno {
     constructor(nome: String, matricula: String) {
         this.nome = nome
         this.matricula = matricula
-        disciplinas = ArrayList()
+//        disciplinas = ArrayList()
     }
 
     fun addDisciplina(disciplina: Disciplina) {
         disciplinas!!.add(disciplina)
     }
-}
+}*/

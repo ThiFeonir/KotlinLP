@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+/*      testando o listView de Disciplinas
         var disciplina : ArrayList<Disciplina>
         disciplina = ArrayList()
         disciplina.add(Disciplina("Estrutura de Dados II", 10.0,10.0,9.0))
@@ -24,8 +25,20 @@ class MainActivity : AppCompatActivity() {
 
         var adapter : DisciplinasAdapter
         adapter = DisciplinasAdapter(this,disciplina)
-        listAlunos.adapter = adapter
+        listAlunos.adapter = adapter*/
 
+
+        var aluno: ArrayList<Aluno>
+        aluno = ArrayList()
+        aluno.add(Aluno("Weslley", "123"))
+        aluno.add(Aluno("Thiago", "1235"))
+        aluno.add(Aluno("Thayane", "1234"))
+        aluno.add(Aluno("Kelvin", "1253"))
+        aluno.add(Aluno("Carlos", "12253"))
+
+        var adapter: AlunosAdapter
+        adapter = AlunosAdapter(this,aluno)
+        listAlunos.adapter = adapter
 
 /*
         floatingActionButton.setOnClickListener(View.OnClickListener {
