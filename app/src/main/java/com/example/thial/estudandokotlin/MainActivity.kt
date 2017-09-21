@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-//    val turma = Turma()
+    val turma = Turma()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         adapter = DisciplinasAdapter(this,disciplina)
         listAlunos.adapter = adapter*/
 
-
+/*      Testando listView de Aluno
         var aluno: ArrayList<Aluno>
         aluno = ArrayList()
         aluno.add(Aluno("Weslley", "123"))
@@ -39,14 +39,23 @@ class MainActivity : AppCompatActivity() {
         var adapter: AlunosAdapter
         adapter = AlunosAdapter(this,aluno)
         listAlunos.adapter = adapter
+*/
 
-/*
+        turma.alunos.add(Aluno("Weslley", "123"))
+        turma.alunos.add(Aluno("Thiago", "1235"))
+        turma.alunos.add(Aluno("Thayane", "1234"))
+        turma.alunos.add(Aluno("Kelvin", "1253"))
+        turma.alunos.add(Aluno("Carlos", "12253"))
+
+        var adapter: AlunosAdapter
+        adapter = AlunosAdapter(this,turma.alunos)
+        listAlunos.adapter = adapter
+
         floatingActionButton.setOnClickListener(View.OnClickListener {
             val i = Intent(this, ActivityAddAluno::class.java)
             i.putExtra("turma", turma)
             startActivity(i)
-        })*/
-
+        })
 
     }
 }
