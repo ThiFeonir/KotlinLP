@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         adapter = AlunosAdapter(this,turma.alunos)
         listAlunos.adapter = adapter
 
-        floatingActionButton.setOnClickListener(View.OnClickListener {
+        buttonaddaluno.setOnClickListener({
             val i = Intent(this, ActivityAddAluno::class.java)
             i.putExtra("turma", turma)
             startActivity(i)
