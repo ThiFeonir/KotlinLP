@@ -37,8 +37,12 @@ class MainActivity : AppCompatActivity() {
         turma.alunos.add(Aluno("Kelvin", "1253"))
         turma.alunos.add(Aluno("Carlos", "12253"))
 
+        val arq = ArquivoUtils(turma)
+
+        val turminha : Turma = arq.abrirArquivo()
+
         recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.adapter = AlunoAdapter(this,turma.alunos)
+        recycler_view.adapter = AlunoAdapter(this,turminha.alunos)
 /*
 
         buttonaddaluno.setOnClickListener({

@@ -17,4 +17,5 @@ class Turma() : Serializable {
     fun addAluno(aluno: Aluno) {
         alunos.add(aluno)
     }
+
 }
