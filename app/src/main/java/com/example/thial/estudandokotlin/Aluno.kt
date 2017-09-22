@@ -1,5 +1,6 @@
 package com.example.thial.estudandokotlin
 
+import java.io.Serializable
 import java.util.ArrayList
 
 /**
@@ -22,7 +23,7 @@ class Aluno(nome: String, matricula: String) {
 */
 
 
-class Aluno {
+class Aluno : Serializable {
 
     var disciplinas: ArrayList<Disciplina>? = null
         private set

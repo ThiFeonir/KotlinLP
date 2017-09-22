@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         turma.alunos.add(Aluno("Kelvin", "1253"))
         turma.alunos.add(Aluno("Carlos", "12253"))
 
-        val arq = ArquivoUtils(turma)
+        val arq = ArquivoUtils(turma, this.applicationContext)
 
         val turminha : Turma = arq.abrirArquivo()
 
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(i)
         })
 */
-
 
     }
 }

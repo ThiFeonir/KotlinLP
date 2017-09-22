@@ -1,10 +1,12 @@
 package com.example.thial.estudandokotlin
 
+import java.io.Serializable
+
 
 /**
  * Created by thial on 19/09/2017.
  */
-class Disciplina (nome: String, nota1 : Double, nota2 : Double, nota3 : Double){
+class Disciplina (nome: String, nota1 : Double, nota2 : Double, nota3 : Double) : Serializable {
 
     var nome: String? = null
     var nota1: Double? = null
