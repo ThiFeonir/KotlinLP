@@ -31,6 +31,20 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
             itemView.mTxtNotaUm.text = disciplina.nota1.toString()
             itemView.mTxtNotaDois.text = disciplina.nota2.toString()
             itemView.mTxtNotaTres.text = disciplina.nota3.toString()
+
+            var media: Double = ((disciplina.nota1 !!+ disciplina.nota2!! + disciplina.nota3!!)/3)
+            itemView.mTxtMedia.text = media.toString()
+            if (media >= 5){
+                itemView.mTxtSituacao.text = "Aprovado"
+                itemView.mTxtSituacao.setTextColor(R.color.green)
+            } else {
+                itemView.mTxtSituacao.text = "Reprovado"
+                itemView.mTxtSituacao.setTextColor(R.color.red)
+            }
+        }
+
+        init {
+            itemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
