@@ -14,8 +14,7 @@ import kotlinx.android.synthetic.main.aluno_row.view.*
 class AlunoAdapter(val context: Context, val alunoLista: ArrayList<Aluno>) : RecyclerView.Adapter<AlunoAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): AlunoAdapter.ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.aluno_row, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.aluno_row, parent, false))
     }
 
     override fun onBindViewHolder(holder: AlunoAdapter.ViewHolder, position: Int) {
@@ -28,6 +27,7 @@ class AlunoAdapter(val context: Context, val alunoLista: ArrayList<Aluno>) : Rec
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var nome: String? = null
+
         fun bindItems(aluno: Aluno) {
             nome = aluno.nome
             itemView.mTxtAluno.text = aluno.nome

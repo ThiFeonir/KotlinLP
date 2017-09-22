@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -27,27 +28,27 @@ class MainActivity : AppCompatActivity() {
         adapter = DisciplinasAdapter(this,disciplina)
         listAlunos.adapter = adapter*/
 
-
-      /*  var aluno: ArrayList<Aluno>
-        aluno = ArrayList()*/
         turma.alunos.add(Aluno("Weslley", "123"))
         turma.alunos.add(Aluno("Thiago", "1235"))
         turma.alunos.add(Aluno("Thayane", "1234"))
         turma.alunos.add(Aluno("Kelvin", "1253"))
         turma.alunos.add(Aluno("Carlos", "12253"))
 
-        var arq = ArquivoUtils(turma, this.applicationContext)
+        val arq = ArquivoUtils(turma)
 
-        //var turminha : Turma = arq.abrirArquivo()
+        val turminha : Turma = arq.abrirArquivo()
 
         recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.adapter = AlunoAdapter(this,turma.alunos)
+        recycler_view.adapter = AlunoAdapter(this,turminha.alunos)
+/*
 
         buttonaddaluno.setOnClickListener({
             val i = Intent(this, ActivityAddAluno::class.java)
             i.putExtra("turma", turma)
             startActivity(i)
         })
+*/
+
 
     }
 }
