@@ -9,12 +9,14 @@ import android.content.Intent
 
 
 class ActivityAddAluno : AppCompatActivity() {
-    /*var i = getIntent()
-    private var turma = i.getSerializableExtra("turma") as Turma*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_aluno)
+
+        var i : Intent = getIntent() as Intent
+        val turma : Turma = i.getSerializableExtra("turma") as Turma
+
 
         mBtnSalvarAluno.setOnClickListener{
             var name = mEdtNomeAluno.text.toString()
@@ -22,7 +24,7 @@ class ActivityAddAluno : AppCompatActivity() {
             toast("Nome: $name \n," +
                     "Matricula: $matricula")
 
-            //turma.addAluno(Aluno(name, matricula))
+            turma.addAluno(Aluno(name, matricula))
         }
     }
 

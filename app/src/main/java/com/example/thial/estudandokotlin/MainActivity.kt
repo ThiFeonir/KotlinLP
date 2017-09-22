@@ -42,14 +42,12 @@ class MainActivity : AppCompatActivity() {
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.adapter = AlunoAdapter(this,turminha.alunos)
-/*
 
-        buttonaddaluno.setOnClickListener({
+        floatingActionButton.setOnClickListener({
             val i = Intent(this, ActivityAddAluno::class.java)
-            i.putExtra("turma", turma)
+            i.putExtra("turma", turminha)
             startActivity(i)
         })
-*/
 
     }
 
