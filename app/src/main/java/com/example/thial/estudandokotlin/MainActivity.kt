@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.IOException
+import java.io.ObjectInputStream
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,15 +30,15 @@ class MainActivity : AppCompatActivity() {
         adapter = DisciplinasAdapter(this,disciplina)
         listAlunos.adapter = adapter*/
 
-        turma.alunos.add(Aluno("Weslley", "123"))
+        /*turma.alunos.add(Aluno("Weslley", "123"))
         turma.alunos.add(Aluno("Thiago", "1235"))
         turma.alunos.add(Aluno("Thayane", "1234"))
         turma.alunos.add(Aluno("Kelvin", "1253"))
         turma.alunos.add(Aluno("Carlos", "12253"))
 
-        val arq = ArquivoUtils(turma, this.applicationContext)
+        val arq = ArquivoUtils(turma, this.applicationContext)*/
 
-        val turminha : Turma = arq.abrirArquivo()
+        val turminha : Turma = this.abrirArquivo()
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.adapter = AlunoAdapter(this,turminha.alunos)
@@ -49,6 +51,15 @@ class MainActivity : AppCompatActivity() {
         })
 */
 
+    }
+
+    @Throws(IOException::class, ClassNotFoundException::class)
+    fun abrirArquivo(): Turma {
+
+        val fis = this.applicationContext .openFileInput("turma.dat")
+        val ois = ObjectInputStream(fis)
+
+        return ois.readObject() as Turma
     }
 }
 

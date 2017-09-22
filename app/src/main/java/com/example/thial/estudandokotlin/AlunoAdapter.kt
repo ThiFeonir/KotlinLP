@@ -40,7 +40,7 @@ class AlunoAdapter(val context: Context, val alunoLista: ArrayList<Aluno>) : Rec
 
         override fun onClick(v: View?) {
            val aluno: Aluno? = null
-            Toast.makeText(context, "Você clicou em $nome", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Você clicou em $nome", Toast.LENGTH_SHORT).show()
         }
     }
 }
