@@ -35,8 +35,8 @@
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
-                android:text="Disciplina"
-                android:layout_weight="0.65" />
+                android:layout_weight="0.65"
+                android:text="Disciplina" />
 
             <TextView
                 android:id="@+id/mTxtM"

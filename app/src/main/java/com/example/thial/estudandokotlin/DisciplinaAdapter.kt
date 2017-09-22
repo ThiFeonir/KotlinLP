@@ -1,6 +1,7 @@
 package com.example.thial.estudandokotlin
 
 import android.content.Context
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -36,10 +37,10 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
             itemView.mTxtMedia.text = media.toString()
             if (media >= 5){
                 itemView.mTxtSituacao.text = "Aprovado"
-                itemView.mTxtSituacao.setTextColor(R.color.green)
+                itemView.mTxtSituacao.setTextColor(Color.GREEN)
             } else {
                 itemView.mTxtSituacao.text = "Reprovado"
-                itemView.mTxtSituacao.setTextColor(R.color.red)
+                itemView.mTxtSituacao.setTextColor(Color.RED)
             }
         }
 
