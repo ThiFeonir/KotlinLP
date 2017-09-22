@@ -18,7 +18,7 @@ class AlunoAdapter(val context: Context, val alunoLista: ArrayList<Aluno>) : Rec
     }
 
     override fun onBindViewHolder(holder: AlunoAdapter.ViewHolder, position: Int) {
-        holder.bindItems(alunoLista?.get(position))
+        holder.bindItems(alunoLista?.get(position),position)
     }
 
     override fun getItemCount(): Int {
@@ -27,8 +27,9 @@ class AlunoAdapter(val context: Context, val alunoLista: ArrayList<Aluno>) : Rec
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var nome: String? = null
-
-        fun bindItems(aluno: Aluno) {
+        var position: Int? = null
+        fun bindItems(aluno: Aluno, pos: Int) {
+            position = pos + 1
             nome = aluno.nome
             itemView.mTxtAluno.text = aluno.nome
             itemView.mTxtMatricula.text = aluno.matricula
@@ -39,7 +40,8 @@ class AlunoAdapter(val context: Context, val alunoLista: ArrayList<Aluno>) : Rec
         }
 
         override fun onClick(v: View?) {
-            Toast.makeText(context, "Você clicou em $nome", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(context, "Você clicou em $nome na posição $position", Toast.LENGTH_SHORT).show()
         }
     }
 }

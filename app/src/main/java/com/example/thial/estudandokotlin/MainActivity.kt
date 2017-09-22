@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         recyclerViewAluno.layoutManager = LinearLayoutManager(this)
         recyclerViewAluno.adapter = AlunoAdapter(this, turminha.alunos)
 
-
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
             val i = Intent(this,ActivityAddAluno::class.java)
