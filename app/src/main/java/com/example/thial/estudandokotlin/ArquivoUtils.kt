@@ -1,39 +1,31 @@
 package com.example.thial.estudandokotlin
 
-import android.provider.MediaStore
 
-import java.io.File
-import java.io.File.*
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.ObjectInputStream
-import java.io.ObjectOutputStream
-import java.util.NoSuchElementException
+import android.content.Context
+import java.io.*
 
 /**
  * Created by thial on 21/09/2017.
  */
 
-class ArquivoUtils internal constructor(internal var turminha: Turma) {
-
-    internal lateinit var fos: FileOutputStream
-    internal lateinit var oos: ObjectOutputStream
+class ArquivoUtils internal constructor( var turminha: Turma, var context : Context) {
+    internal val fos = this.context.openFileOutput("turma.dat", Context.MODE_PRIVATE)
+    internal val oos = ObjectOutputStream(fos)
 
     init {
-        criarArquivo()
-        salvarArquivo()
-        closeFile()
+        //this.criarArquivo()
+        this.salvarArquivo()
+        this.closeFile()
     }
 
-    @Throws(IOException::class)
+    /*@Throws(IOException::class)
     fun criarArquivo() {
-        fos = FileOutputStream("turma.dat")
+        fos = this.context.openFileOutput("turma.dat", Context.MODE_PRIVATE)
         oos = ObjectOutputStream(fos)
-    }
+    }*/
 
     @Throws(IOException::class)
-    fun salvarArquivo() {
+    private fun salvarArquivo() {
         oos.writeObject(turminha)
     }
 
@@ -45,7 +37,7 @@ class ArquivoUtils internal constructor(internal var turminha: Turma) {
     @Throws(IOException::class, ClassNotFoundException::class)
     fun abrirArquivo(): Turma {
 
-        val fis = FileInputStream("turma.dat")
+        val fis = context.openFileInput("turma.dat")
         val ois = ObjectInputStream(fis)
 
         return ois.readObject() as Turma
