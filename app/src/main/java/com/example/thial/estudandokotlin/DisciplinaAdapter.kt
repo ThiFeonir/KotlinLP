@@ -18,7 +18,7 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
     }
 
     override fun onBindViewHolder(holder: DisciplinaAdapter.ViewHolder, position: Int) {
-        holder.bindItens(disciplinaLista?.get(position))
+        holder.bindItens(disciplinaLista?.get(position),position)
     }
 
     override fun getItemCount(): Int {
@@ -26,7 +26,9 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
     }
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener {
         var matricula : String? = null
-        fun bindItens(disciplina : Disciplina) {
+        var position : Int? = null
+        fun bindItens(disciplina : Disciplina, pos : Int) {
+            position = pos
             matricula = disciplina.nome
             itemView.mTxtDisciplina.text = disciplina.nome
             itemView.mTxtNotaUm.text = disciplina.nota1.toString()
@@ -49,7 +51,7 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
         }
 
         override fun onClick(v: View?) {
-            Toast.makeText(context, "Você clicou em $matricula", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Você clicou na posição $position", Toast.LENGTH_SHORT).show()
         }
 
     }
