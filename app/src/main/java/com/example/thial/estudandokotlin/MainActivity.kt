@@ -28,9 +28,11 @@ class MainActivity : AppCompatActivity() {
 
             val turminha: Turma = this.abrirArquivo()  //quando vai passar a turma para a activity de adicionar, precisa abrir o arquivo de novo
             //para atualizar
-
+            var bundle = Bundle()
+            bundle.putInt("pos", -1)
+            bundle.putSerializable("turma", turminha)
             val i = Intent(this, ActivityAddAluno::class.java)
-            i.putExtra("turminha", turminha)
+            i.putExtras(bundle)
             startActivity(i)
         }
     }
@@ -51,5 +53,4 @@ class MainActivity : AppCompatActivity() {
         recyclerViewAluno.adapter = AlunoAdapter(this, turminha)
 
     }
-
 }
