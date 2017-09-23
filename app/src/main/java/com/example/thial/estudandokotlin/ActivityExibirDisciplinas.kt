@@ -25,13 +25,14 @@ class ActivityExibirDisciplinas : AppCompatActivity() {
         var pos : Int = bundle.getInt("pos")
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = DisciplinaAdapter(this, turma.alunos.get(pos).disciplinas!!)
+        recyclerView.adapter = DisciplinaAdapter(this, turma.alunos.get(pos).disciplinas!!, pos)
 
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
 
             var bundle = Bundle()
             pos?.let { bundle.putInt("pos", it) }
+            bundle.putInt("posDisc", -1)
             val turminha: Turma = this.abrirArquivo()  //quando vai passar a turma para a activity de adicionar, precisa abrir o arquivo de novo
             //para atualizar
             bundle.putSerializable("turma", turminha)
@@ -53,7 +54,7 @@ class ActivityExibirDisciplinas : AppCompatActivity() {
         val turminha: Turma = this.abrirArquivo()
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = DisciplinaAdapter(this, turminha.alunos.get(pos).disciplinas!!)
+        recyclerView.adapter = DisciplinaAdapter(this, turminha.alunos.get(pos).disciplinas!!, pos)
 
     }
 
@@ -65,5 +66,4 @@ class ActivityExibirDisciplinas : AppCompatActivity() {
 
         return ois.readObject() as Turma
     }
-
 }

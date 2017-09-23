@@ -17,6 +17,7 @@ class ActivityAddDisciplina : AppCompatActivity() {
 
         val turminha : Turma = bundle.getSerializable("turma") as Turma
         var pos : Int = bundle.getInt("pos")
+        var posDisc : Int = bundle.getInt("posDisc")
 
         mBtnSalvarDisciplina.setOnClickListener{
             val nome = mEdtNomeDisciplina.text.toString()
@@ -24,10 +25,15 @@ class ActivityAddDisciplina : AppCompatActivity() {
             var nota2: Double = mEdtNota2.text.toString().toDouble()
             var nota3: Double = mEdtNota3.text.toString().toDouble()
 
-            turminha.alunos.get(pos).addDisciplina(Disciplina(nome, nota1, nota2, nota3))
-
-            ArquivoUtils(turminha, this)
-            finish()
+            if(posDisc == -1) {
+                turminha.alunos.get(pos).addDisciplina(Disciplina(nome, nota1, nota2, nota3))
+                ArquivoUtils(turminha, this)
+                finish()
+            }else{
+                turminha.alunos.get(pos).disciplinas!!.set(posDisc, Disciplina(nome, nota1, nota2, nota3))
+                ArquivoUtils(turminha, this)
+                finish()
+            }
         }
     }
 }

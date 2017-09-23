@@ -1,17 +1,22 @@
 package com.example.thial.estudandokotlin
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
+import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.disciplina_row.view.*
+import java.io.IOException
+import java.io.ObjectInputStream
+
 /**
  * Created by Weslley on 22/09/2017.
  */
-class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Disciplina>) : RecyclerView.Adapter<DisciplinaAdapter.ViewHolder>(){
+class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Disciplina>, var posaluno : Int) : RecyclerView.Adapter<DisciplinaAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): DisciplinaAdapter.ViewHolder{
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.disciplina_row,parent,false))
@@ -24,7 +29,7 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
     override fun getItemCount(): Int {
        return disciplinaLista.size
     }
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),View.OnClickListener {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var matricula : String? = null
         var position : Int? = null
         fun bindItens(disciplina : Disciplina, pos : Int) {
@@ -47,21 +52,42 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
         }
 
         init {
-            itemView.setOnClickListener(this)
             itemView.mImgBtnEdit.setOnClickListener { editItem() }
             itemView.mImgBtnDelete.setOnClickListener { deleteItem() }
         }
 
-        override fun onClick(v: View?) {
-            Toast.makeText(context, "Você clicou na posição $position", Toast.LENGTH_SHORT).show()
-        }
-
         private fun deleteItem() {
-            Toast.makeText(context, "Você clicou em $matricula para deletar", Toast.LENGTH_SHORT).show()
+            val turminha: Turma = abrirArquivo()
+
+            turminha.alunos.get(posaluno).disciplinas!!.removeAt(position!!)
+            ArquivoUtils(turminha, context)
+            var bundle = Bundle()
+            posaluno?.let { bundle.putInt("pos", it) }
+            bundle.putSerializable("turma", turminha)
+            val int = Intent(context, ActivityExibirDisciplinas::class.java)
+            int.putExtras(bundle)
+            context.startActivity(int)
         }
 
         private fun editItem() {
-            Toast.makeText(context, "Você clicou em $matricula para editar", Toast.LENGTH_SHORT).show()
+
+            var turminha : Turma = abrirArquivo()
+            var bundle = Bundle()
+            posaluno?.let { bundle.putInt("pos", it) }
+            position?.let { bundle.putInt("posDisc", it) }
+            bundle.putSerializable("turma", turminha)
+
+            val int = Intent(context, ActivityAddDisciplina::class.java)
+            int.putExtras(bundle)
+            context.startActivity(int)
         }
+    }
+    @Throws(IOException::class, ClassNotFoundException::class)
+    fun abrirArquivo(): Turma {
+
+        val fis = this.context.openFileInput("turma.dat")
+        val ois = ObjectInputStream(fis)
+
+        return ois.readObject() as Turma
     }
 }

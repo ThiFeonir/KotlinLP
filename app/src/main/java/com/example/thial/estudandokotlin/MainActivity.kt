@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
 import kotlinx.android.synthetic.main.content_main.*
+import java.io.File
 import java.io.IOException
 import java.io.ObjectInputStream
 
@@ -18,7 +19,15 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-        val turma : Turma = this.abrirArquivo()
+        var turma : Turma
+        var file = File("turma.dat")
+
+        if(file.exists()) {
+            turma = this.abrirArquivo()
+        }else{
+            turma = Turma()
+            ArquivoUtils(turma, this.applicationContext)
+        }
 
         recyclerViewAluno.layoutManager = LinearLayoutManager(this)
         recyclerViewAluno.adapter = AlunoAdapter(this, turma)

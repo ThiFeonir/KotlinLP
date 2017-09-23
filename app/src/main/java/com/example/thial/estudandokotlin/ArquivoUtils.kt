@@ -18,12 +18,6 @@ class ArquivoUtils internal constructor( var turminha: Turma, var context : Cont
     }
 
     @Throws(IOException::class)
-    fun criarArquivo() {
-        val fos = this.context.openFileOutput("turma.dat", Context.MODE_PRIVATE)
-        val oos = ObjectOutputStream(fos)
-    }
-
-    @Throws(IOException::class)
     private fun salvarArquivo() {
         oos.writeObject(turminha)
         this.closeFile()
