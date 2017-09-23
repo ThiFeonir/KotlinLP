@@ -14,23 +14,19 @@ class ActivityAddAluno : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_aluno)
 
-        var i : Intent = getIntent() as Intent
-        val turma : Turma = i.getSerializableExtra("turma") as Turma
-
+        var turma : Turma = intent.getSerializableExtra("turminha") as Turma
 
         mBtnSalvarAluno.setOnClickListener{
             var name = mEdtNomeAluno.text.toString()
             var matricula = mEdtMatriculaAluno.text.toString()
             toast("$name adicionado!!!")
-            turma.addAluno(Aluno(name, matricula))
+            turma.alunos.add(Aluno(name, matricula))
+            ArquivoUtils(turma, this)
             finish()
         }
     }
 
-    override fun finish() {
-        super.finish()
-        // salvar os dados aqui
-    }
+    override fun finish() { super.finish() }
 
     fun toast(message: String, length: Int = Toast.LENGTH_LONG) {
         Toast.makeText(this, message, length).show()

@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-        turma.alunos.add(Aluno("Weslley", "123"))
+       /* turma.alunos.add(Aluno("Weslley", "123"))
         turma.alunos.add(Aluno("Thiago", "1235"))
         turma.alunos.add(Aluno("Thayane", "1234"))
         turma.alunos.add(Aluno("Kelvin", "1253"))
@@ -49,9 +49,9 @@ class MainActivity : AppCompatActivity() {
         turma.alunos.get(0).disciplinas!!.add(Disciplina("LFT", 10.0, 10.0, 8.0))
         turma.alunos.get(0).disciplinas!!.add(Disciplina("Estrutura de Dadoos I", 10.0, 10.0, 8.0))
         turma.alunos.get(0).disciplinas!!.add(Disciplina("TEP", 10.0, 10.0, 8.0))
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("OAC", 10.0, 10.0, 8.0))
+        turma.alunos.get(0).disciplinas!!.add(Disciplina("OAC", 10.0, 10.0, 8.0))*/
 
-        ArquivoUtils(turma, this.applicationContext)
+        //ArquivoUtils(turma, this.applicationContext)
 
         val turminha: Turma = this.abrirArquivo()
 
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
             val i = Intent(this, ActivityAddAluno::class.java)
-            i.putExtra("turma", turminha)
+            i.putExtra("turminha", turminha)
             startActivity(i)
         }
     }
@@ -73,6 +73,14 @@ class MainActivity : AppCompatActivity() {
         val ois = ObjectInputStream(fis)
 
         return ois.readObject() as Turma
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val turminha: Turma = this.abrirArquivo()
+        recyclerViewAluno.layoutManager = LinearLayoutManager(this)
+        recyclerViewAluno.adapter = AlunoAdapter(this, turminha.alunos)
+
     }
 
 }
