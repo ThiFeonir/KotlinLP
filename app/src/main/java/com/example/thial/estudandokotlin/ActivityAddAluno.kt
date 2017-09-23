@@ -25,7 +25,13 @@ class ActivityAddAluno : AppCompatActivity() {
                     "Matricula: $matricula")
 
             turma.addAluno(Aluno(name, matricula))
+            finish()
         }
+    }
+
+    override fun finish() {
+        super.finish()
+        // salvar os dados aqui
     }
 
     fun toast(message: String, length: Int = Toast.LENGTH_LONG) {
