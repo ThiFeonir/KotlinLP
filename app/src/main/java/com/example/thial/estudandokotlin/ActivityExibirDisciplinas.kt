@@ -3,12 +3,12 @@ package com.example.thial.estudandokotlin
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
-import android.view.View
 import kotlinx.android.synthetic.main.content_activity_exibir_disciplinas.*
+import java.io.IOException
+import java.io.ObjectInputStream
 
 class ActivityExibirDisciplinas : AppCompatActivity() {
 
@@ -19,17 +19,51 @@ class ActivityExibirDisciplinas : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         var i : Intent = getIntent() as Intent
-        val disciplinas : ArrayList<Disciplina> = i.getSerializableExtra("disciplinas") as ArrayList<Disciplina>
+        var bundle : Bundle = i.extras
+
+        val turma: Turma = this.abrirArquivo()
+        var pos : Int = bundle.getInt("pos")
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = DisciplinaAdapter(this, disciplinas)
-
+        recyclerView.adapter = DisciplinaAdapter(this, turma.alunos.get(pos).disciplinas!!)
 
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+
+            var bundle = Bundle()
+            pos?.let { bundle.putInt("pos", it) }
+            val turminha: Turma = this.abrirArquivo()  //quando vai passar a turma para a activity de adicionar, precisa abrir o arquivo de novo
+            //para atualizar
+            bundle.putSerializable("turma", turminha)
+
+            val int = Intent(this, ActivityAddDisciplina::class.java)
+            int.putExtras(bundle)
+            startActivity(int)
         }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        var i : Intent = getIntent() as Intent
+        var bundle : Bundle = i.extras
+
+        var pos : Int = bundle.getInt("pos")
+
+        val turminha: Turma = this.abrirArquivo()
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = DisciplinaAdapter(this, turminha.alunos.get(pos).disciplinas!!)
+
+    }
+
+    @Throws(IOException::class, ClassNotFoundException::class)
+    fun abrirArquivo(): Turma {
+
+        val fis = this.applicationContext.openFileInput("turma.dat")
+        val ois = ObjectInputStream(fis)
+
+        return ois.readObject() as Turma
     }
 
 }

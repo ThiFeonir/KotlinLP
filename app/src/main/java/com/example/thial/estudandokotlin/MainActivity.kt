@@ -12,54 +12,23 @@ import java.io.ObjectInputStream
 
 class MainActivity : AppCompatActivity() {
 
-    val turma = Turma()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-       /* turma.alunos.add(Aluno("Weslley", "123"))
-        turma.alunos.add(Aluno("Thiago", "1235"))
-        turma.alunos.add(Aluno("Thayane", "1234"))
-        turma.alunos.add(Aluno("Kelvin", "1253"))
-        turma.alunos.add(Aluno("Carlos", "12253"))
-
-        //adicionado disciplina na pos 3
-        turma.alunos.get(3).disciplinas!!.add(Disciplina("Estrutura de Dados II", 10.0, 10.0, 9.0))
-        turma.alunos.get(3).disciplinas!!.add(Disciplina("Liguagens de Programação", 3.5, 7.0, 10.0))
-        turma.alunos.get(3).disciplinas!!.add(Disciplina("Programação III", 10.0, 1.0, 1.0))
-        turma.alunos.get(3).disciplinas!!.add(Disciplina("Teoria da computação", 10.0, 10.0, 8.0))
-        turma.alunos.get(3).disciplinas!!.add(Disciplina("Estrutura de Dadoos I", 10.0, 10.0, 8.0))
-        //adicionado disciplina na pos 1
-        turma.alunos.get(1).disciplinas!!.add(Disciplina("Teoria da computação", 10.0, 10.0, 8.0))
-        turma.alunos.get(1).disciplinas!!.add(Disciplina("Estrutura de Dadoos I", 10.0, 10.0, 8.0))
-        //adicionado disciplina na pos4
-        turma.alunos.get(4).disciplinas!!.add(Disciplina("Estrutura de Dados II", 10.0, 10.0, 9.0))
-        turma.alunos.get(4).disciplinas!!.add(Disciplina("Liguagens de Programação", 3.5, 7.0, 10.0))
-        turma.alunos.get(4).disciplinas!!.add(Disciplina("Programação III", 10.0, 1.0, 1.0))
-
-        turma.alunos.get(2).disciplinas!!.add(Disciplina("Programação III", 10.0, 1.0, 1.0))
-        turma.alunos.get(2).disciplinas!!.add(Disciplina("Teoria da computação", 10.0, 10.0, 8.0))
-
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("Liguagens de Programação", 3.5, 7.0, 10.0))
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("Programação III", 10.0, 1.0, 1.0))
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("Teoria da computação", 10.0, 10.0, 8.0))
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("LFT", 10.0, 10.0, 8.0))
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("Estrutura de Dadoos I", 10.0, 10.0, 8.0))
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("TEP", 10.0, 10.0, 8.0))
-        turma.alunos.get(0).disciplinas!!.add(Disciplina("OAC", 10.0, 10.0, 8.0))*/
-
-        //ArquivoUtils(turma, this.applicationContext)
-
-        val turminha: Turma = this.abrirArquivo()
+        val turma : Turma = this.abrirArquivo()
 
         recyclerViewAluno.layoutManager = LinearLayoutManager(this)
-        recyclerViewAluno.adapter = AlunoAdapter(this, turminha.alunos)
+        recyclerViewAluno.adapter = AlunoAdapter(this, turma)
 
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
+
+            val turminha: Turma = this.abrirArquivo()  //quando vai passar a turma para a activity de adicionar, precisa abrir o arquivo de novo
+            //para atualizar
+
             val i = Intent(this, ActivityAddAluno::class.java)
             i.putExtra("turminha", turminha)
             startActivity(i)
@@ -79,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         super.onRestart()
         val turminha: Turma = this.abrirArquivo()
         recyclerViewAluno.layoutManager = LinearLayoutManager(this)
-        recyclerViewAluno.adapter = AlunoAdapter(this, turminha.alunos)
+        recyclerViewAluno.adapter = AlunoAdapter(this, turminha)
 
     }
 
