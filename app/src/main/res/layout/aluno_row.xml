@@ -25,6 +25,7 @@
         <LinearLayout
             android:layout_width="245dp"
             android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -63,7 +64,7 @@
             android:id="@+id/mBtnEdit"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="8dp"
@@ -75,7 +76,7 @@
             android:id="@+id/mBtnDelete"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="3dp"
             android:layout_marginTop="8dp"

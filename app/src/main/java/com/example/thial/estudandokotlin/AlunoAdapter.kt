@@ -9,8 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.aluno_row.view.*
-import java.io.IOException
-import java.io.ObjectInputStream
 
 /**
  * Created by Weslley on 21/09/2017.
@@ -60,33 +58,11 @@ class AlunoAdapter(val context: Context, val turminha: Turma) : RecyclerView.Ada
         }
 
         private fun deleteItem() {
-
-            val turminha: Turma = abrirArquivo()
-
-            turminha.alunos.removeAt(position!!)
-            ArquivoUtils(turminha, context)
-            val i = Intent(context, MainActivity::class.java)
-            context.startActivity(i)
+            Toast.makeText(context, "Você clicou em $nome para deletar", Toast.LENGTH_SHORT).show()
         }
 
         private fun editItem() {
-
-            var bundle = Bundle()
-            position?.let { bundle.putInt("pos", it) }
-            bundle.putSerializable("turma", turminha)
-
-            val int = Intent(context, ActivityAddAluno::class.java)
-            int.putExtras(bundle)
-            context.startActivity(int)
+            Toast.makeText(context, "Você clicou em $nome para editar", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    @Throws(IOException::class, ClassNotFoundException::class)
-    fun abrirArquivo(): Turma {
-
-        val fis = this.context.openFileInput("turma.dat")
-        val ois = ObjectInputStream(fis)
-
-        return ois.readObject() as Turma
     }
 }

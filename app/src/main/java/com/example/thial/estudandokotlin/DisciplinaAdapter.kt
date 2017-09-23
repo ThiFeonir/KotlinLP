@@ -48,11 +48,20 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
 
         init {
             itemView.setOnClickListener(this)
+            itemView.mImgBtnEdit.setOnClickListener { editItem() }
+            itemView.mImgBtnDelete.setOnClickListener { deleteItem() }
         }
 
         override fun onClick(v: View?) {
             Toast.makeText(context, "Você clicou na posição $position", Toast.LENGTH_SHORT).show()
         }
 
+        private fun deleteItem() {
+            Toast.makeText(context, "Você clicou em $matricula para deletar", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun editItem() {
+            Toast.makeText(context, "Você clicou em $matricula para editar", Toast.LENGTH_SHORT).show()
+        }
     }
 }
