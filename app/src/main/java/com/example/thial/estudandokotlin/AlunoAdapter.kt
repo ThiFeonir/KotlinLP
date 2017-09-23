@@ -21,6 +21,7 @@ class AlunoAdapter(val context: Context, val turminha: Turma) : RecyclerView.Ada
 
     override fun onBindViewHolder(holder: AlunoAdapter.ViewHolder, position: Int) {
         holder.bindItems(turminha?.alunos.get(position),position)
+
     }
 
     override fun getItemCount(): Int {
@@ -39,6 +40,8 @@ class AlunoAdapter(val context: Context, val turminha: Turma) : RecyclerView.Ada
 
         init {
             itemView.setOnClickListener(this)
+            itemView.mBtnEdit.setOnClickListener{ itemView -> editItem()}
+            itemView.mBtnDelete.setOnClickListener{ itemView -> delelteItem()}
         }
 
         override fun onClick(v: View?) {
@@ -52,6 +55,14 @@ class AlunoAdapter(val context: Context, val turminha: Turma) : RecyclerView.Ada
             context.startActivity(int)
 
             Toast.makeText(context, "Você clicou em $nome na posição $position", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun delelteItem() {
+            Toast.makeText(context, "Você clicou em $nome para deletar", Toast.LENGTH_SHORT).show()
+        }
+
+        private fun editItem() {
+            Toast.makeText(context, "Você clicou em $nome para editar", Toast.LENGTH_SHORT).show()
         }
     }
 }

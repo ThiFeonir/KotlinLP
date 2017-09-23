@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mCardLayout"
@@ -18,37 +17,72 @@
 
 
     <LinearLayout
+        android:id="@+id/LLH"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/mTxtAluno"
-            android:layout_marginLeft="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nome do Aluno" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="245dp"
+            android:layout_marginTop="1dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtMat"
-                android:layout_width="wrap_content"
+                android:id="@+id/mTxtAluno"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.1"
                 android:layout_marginLeft="5dp"
-                android:text="Matricula: " />
+                android:layout_marginTop="5dp"
+                android:text="Nome do Aluno"
+                android:textSize="16dp" />
 
-            <TextView
-                android:id="@+id/mTxtMatricula"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Numero da matricula" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtMat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="0.1"
+                    android:text="Matricula: " />
+
+                <TextView
+                    android:id="@+id/mTxtMatricula"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="Numero da matricula" />
+            </LinearLayout>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/mBtnEdit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_add_black_24dp"
+
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/mBtnDelete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/ic_delete_black_24dp"
+
+            android:gravity="center" />
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
