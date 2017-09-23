@@ -21,9 +21,7 @@ class ActivityAddAluno : AppCompatActivity() {
         mBtnSalvarAluno.setOnClickListener{
             var name = mEdtNomeAluno.text.toString()
             var matricula = mEdtMatriculaAluno.text.toString()
-            toast("Nome: $name \n," +
-                    "Matricula: $matricula")
-
+            toast("$name adicionado!!!")
             turma.addAluno(Aluno(name, matricula))
             finish()
         }
