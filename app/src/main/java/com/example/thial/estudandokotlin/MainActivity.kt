@@ -20,14 +20,14 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         var turma : Turma
-        var file = File("turma.dat")
+        var file = File(this.applicationContext.getFilesDir(), "turma.dat")
 
-        if(file.exists()) {
-            turma = this.abrirArquivo()
-        }else{
+        if(!file.exists()) {
             turma = Turma()
             ArquivoUtils(turma, this.applicationContext)
         }
+
+             turma = this.abrirArquivo()
 
         recyclerViewAluno.layoutManager = LinearLayoutManager(this)
         recyclerViewAluno.adapter = AlunoAdapter(this, turma)
