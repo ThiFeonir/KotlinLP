@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_add_aluno.*
+import kotlinx.android.synthetic.main.activity_deletar.*
 
 class ActivityAddAluno : AppCompatActivity() {
 
@@ -17,6 +18,11 @@ class ActivityAddAluno : AppCompatActivity() {
 
         val turma : Turma = bundle.getSerializable("turma") as Turma
         var pos : Int = bundle.getInt("pos")
+
+        if (pos !== -1) {
+            mEdtNomeAluno.setText(turma.alunos.get(pos).nome)
+            mEdtMatriculaAluno.setText(turma.alunos.get(pos).matricula)
+        }
 
         mBtnSalvarAluno.setOnClickListener{
 

@@ -55,14 +55,13 @@ class AlunoAdapter(val context: Context, val turminha: Turma) : RecyclerView.Ada
             val int = Intent(context, ActivityExibirDisciplinas::class.java)
             int.putExtras(bundle)
             context.startActivity(int)
-
-            Toast.makeText(context, "Você clicou em $nome na posição $position", Toast.LENGTH_SHORT).show()
         }
 
         private fun deleteItem() {
 
             var bundle = Bundle()
             position?.let { bundle.putInt("pos", it) }
+            bundle.putInt("cod", 1)
             bundle.putSerializable("turma", turminha)
 
             val int = Intent(context, ActivityDeletar::class.java)

@@ -59,12 +59,11 @@ class DisciplinaAdapter(val context: Context, val disciplinaLista: ArrayList<Dis
         private fun deleteItem() {
             val turminha: Turma = abrirArquivo()
 
-            turminha.alunos.get(posaluno).disciplinas!!.removeAt(position!!)
-            ArquivoUtils(turminha, context)
             var bundle = Bundle()
-            posaluno?.let { bundle.putInt("pos", it) }
+            posaluno?.let { bundle.putInt("pos", posaluno) }
+            bundle.putInt("position",position!!)
             bundle.putSerializable("turma", turminha)
-            val int = Intent(context, ActivityExibirDisciplinas::class.java)
+            val int = Intent(context, ActivityDeletarDisciplina::class.java)
             int.putExtras(bundle)
             context.startActivity(int)
         }

@@ -19,6 +19,13 @@ class ActivityAddDisciplina : AppCompatActivity() {
         var pos : Int = bundle.getInt("pos")
         var posDisc : Int = bundle.getInt("posDisc")
 
+        if (posDisc !== -1){
+            mEdtNomeDisciplina.setText(turminha.alunos.get(pos).disciplinas!!.get(posDisc).nome)
+            mEdtNota1.setText(turminha.alunos.get(pos).disciplinas!!.get(posDisc).nota1.toString())
+            mEdtNota2.setText(turminha.alunos.get(pos).disciplinas!!.get(posDisc).nota2.toString())
+            mEdtNota3.setText(turminha.alunos.get(pos).disciplinas!!.get(posDisc).nota3.toString())
+        }
+
         mBtnSalvarDisciplina.setOnClickListener{
             val nome = mEdtNomeDisciplina.text.toString()
             var nota1: Double = mEdtNota1.text.toString().toDouble()
