@@ -61,12 +61,14 @@ class AlunoAdapter(val context: Context, val turminha: Turma) : RecyclerView.Ada
 
         private fun deleteItem() {
 
-            val turminha: Turma = abrirArquivo()
+            var bundle = Bundle()
+            position?.let { bundle.putInt("pos", it) }
+            bundle.putSerializable("turma", turminha)
 
-            turminha.alunos.removeAt(position!!)
-            ArquivoUtils(turminha, context)
-            val i = Intent(context, MainActivity::class.java)
-            context.startActivity(i)
+            val int = Intent(context, ActivityDeletar::class.java)
+            int.putExtras(bundle)
+            context.startActivity(int)
+
         }
 
         private fun editItem() {
@@ -79,14 +81,5 @@ class AlunoAdapter(val context: Context, val turminha: Turma) : RecyclerView.Ada
             int.putExtras(bundle)
             context.startActivity(int)
         }
-    }
-
-    @Throws(IOException::class, ClassNotFoundException::class)
-    fun abrirArquivo(): Turma {
-
-        val fis = this.context.openFileInput("turma.dat")
-        val ois = ObjectInputStream(fis)
-
-        return ois.readObject() as Turma
     }
 }

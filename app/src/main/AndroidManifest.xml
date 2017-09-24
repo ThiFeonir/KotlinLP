@@ -25,6 +25,7 @@
             android:name=".ActivityExibirDisciplinas"
             android:label="@string/title_activity_exibir_disciplinas"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ActivityDeletar"></activity>
     </application>
 
 </manifest>

@@ -19,15 +19,15 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-        var turma : Turma
+        var turma: Turma
         var file = File(this.applicationContext.getFilesDir(), "turma.dat")
 
-        if(!file.exists()) {
+        if (!file.exists()) {
             turma = Turma()
             ArquivoUtils(turma, this.applicationContext)
         }
 
-             turma = this.abrirArquivo()
+        turma = this.abrirArquivo()
 
         recyclerViewAluno.layoutManager = LinearLayoutManager(this)
         recyclerViewAluno.adapter = AlunoAdapter(this, turma)
